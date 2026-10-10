@@ -5,19 +5,12 @@ This repository holds the organization's default community files and the label t
 
 ## Before committing
 
-- Run the check below and commit only when it passes.
+- Run `uv run poe gate` and commit only when it passes.
 - Never commit paths from your own machine, IP or MAC addresses, internal host names, tokens or
   keys; use the documented defaults or placeholders.
 - Work on a branch and open a pull request; never push to `main`.
 - Issues and pull requests follow the organization's
   [contribution rules](CONTRIBUTING.md).
-
-```bash
-uvx check-jsonschema --builtin-schema vendor.github-issue-forms .github/ISSUE_TEMPLATE/bug.yml .github/ISSUE_TEMPLATE/feature.yml .github/ISSUE_TEMPLATE/task.yml
-uvx check-jsonschema --builtin-schema vendor.github-issue-config .github/ISSUE_TEMPLATE/config.yml
-uv run tools/sync_labels.py --check
-uvx ruff check tools && uvx ruff format --check tools
-```
 
 ## Rules
 

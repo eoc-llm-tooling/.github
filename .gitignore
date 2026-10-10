@@ -2,5 +2,12 @@
 CLAUDE.local.md
 .claude/settings.local.json
 
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
 # OS
 .DS_Store
