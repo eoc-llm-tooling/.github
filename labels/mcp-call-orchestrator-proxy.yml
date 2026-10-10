@@ -1,0 +1,24 @@
+- name: area:resilience
+  color: bfd4f2
+  description: Reconnection, break detection, backend lifecycle
+- name: area:server
+  color: bfd4f2
+  description: The MCP surface the proxy serves to clients
+- name: area:config
+  color: bfd4f2
+  description: Backend description and settings
+- name: area:exposure
+  color: bfd4f2
+  description: Exposure control and overrides
+- name: area:observability
+  color: bfd4f2
+  description: Logs and log levels
+- name: area:packaging
+  color: bfd4f2
+  description: Dependencies and installation
+- name: area:docs
+  color: bfd4f2
+  description: Documentation
+- name: area:deploy
+  color: bfd4f2
+  description: Service, supervisor and container deployment

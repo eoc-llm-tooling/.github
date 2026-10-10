@@ -1,7 +1,7 @@
 # CLAUDE.md
 
-This repository holds the organization's default community files; [README.md](README.md) lists
-them. It has no code.
+This repository holds the organization's default community files and the label tooling;
+[README.md](README.md) lists them.
 
 ## Before committing
 
@@ -15,6 +15,8 @@ them. It has no code.
 ```bash
 uvx check-jsonschema --builtin-schema vendor.github-issue-forms .github/ISSUE_TEMPLATE/bug.yml .github/ISSUE_TEMPLATE/feature.yml .github/ISSUE_TEMPLATE/task.yml
 uvx check-jsonschema --builtin-schema vendor.github-issue-config .github/ISSUE_TEMPLATE/config.yml
+uv run tools/sync_labels.py --check
+uvx ruff check tools && uvx ruff format --check tools
 ```
 
 ## Rules
