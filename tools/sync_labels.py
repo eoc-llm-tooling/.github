@@ -1,7 +1,3 @@
-# /// script
-# requires-python = ">=3.12"
-# dependencies = ["pyyaml>=6"]
-# ///
 """Apply the organization's label definitions to its GitHub repositories.
 
 `labels.yml` holds the labels every repository carries; `labels/<repository>.yml`
@@ -30,7 +26,11 @@ def load(path: Path) -> dict[str, dict[str, str]]:
     entries = yaml.safe_load(path.read_text(encoding="utf-8")) or []
     labels: dict[str, dict[str, str]] = {}
     for entry in entries:
-        name, color = entry["name"], str(entry["color"]).lower()
+        name, color = entry["name"], entry["color"]
+        # YAML reads an unquoted all-digit color as a number, losing leading zeros.
+        if not isinstance(color, str):
+            sys.exit(f"{path.name}: {name} has color {color!r}; quote it")
+        color = color.lower()
         description = entry.get("description", "")
         if name in labels:
             sys.exit(f"{path.name}: {name} is defined twice")
@@ -38,7 +38,8 @@ def load(path: Path) -> dict[str, dict[str, str]]:
             sys.exit(f"{path.name}: {name} has color {color!r}, not six hex digits")
         if len(description) > MAX_DESCRIPTION:
             sys.exit(
-                f"{path.name}: {name} has a description over {MAX_DESCRIPTION} characters"
+                f"{path.name}: {name} has a description over "
+                f"{MAX_DESCRIPTION} characters"
             )
         labels[name] = {"name": name, "color": color, "description": description}
     return labels
