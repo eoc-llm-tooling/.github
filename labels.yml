@@ -1,0 +1,15 @@
+- name: severity:blocker
+  color: b60205
+  description: The component cannot be used, or data is lost or exposed
+- name: severity:major
+  color: d93f0b
+  description: A documented guarantee or main function fails
+- name: severity:minor
+  color: fbca04
+  description: A secondary function misbehaves, or behaviour is noisy or misleading
+- name: severity:cosmetic
+  color: c5def5
+  description: Wording, formatting or presentation only
+- name: decision-needed
+  color: 5319e7
+  description: Waits for a maintainer's decision

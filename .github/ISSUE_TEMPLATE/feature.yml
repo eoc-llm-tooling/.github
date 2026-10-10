@@ -1,0 +1,56 @@
+name: Feature
+description: A new capability or a change in behaviour. An epic is a feature with sub-issues.
+type: Feature
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This description is the plan and is kept current: a decision reached in the comments is
+        carried into it. Everything here is public.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What the feature does, in a few sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: The problem it solves or the need it serves. Name the need's ID from docs/needs.md on a "Traces to:" line where the repository keeps one.
+      placeholder: |
+        Traces to: ABC-N-001
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is included.
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+      description: What is deliberately not included.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable conditions that show the feature is done.
+      placeholder: |
+        - [ ]
+    validations:
+      required: true
+  - type: textarea
+    id: depends-on
+    attributes:
+      label: Depends on
+      description: Issues that must be done first, as "#<n>".
+  - type: textarea
+    id: decisions
+    attributes:
+      label: Decisions needed
+      description: Open choices, each with its options. Label the issue "decision-needed" while one is open.

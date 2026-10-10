@@ -1,0 +1,80 @@
+name: Bug report
+description: Released behaviour that does not work as documented.
+type: Bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This description is the report: it is edited afterwards only to correct it, and the
+        investigation continues in comments. Report a security vulnerability privately instead,
+        as SECURITY.md describes. Everything here is public.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: The observed behaviour, error or output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+      description: What should have happened, and where that is documented if it is.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Numbered steps and the smallest configuration that shows the problem.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Log lines, tracebacks or output. Replace paths, host names and tokens with placeholders.
+      render: text
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who or what is affected, how often, and any workaround.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: The release tag or commit, and the versions of the dependencies involved.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python version, how it is deployed, and anything else relevant.
+  - type: textarea
+    id: possible-cause
+    attributes:
+      label: Possible cause
+      description: A hypothesis, if there is one. The cause is confirmed later in a pinned comment.
+  - type: input
+    id: traces-to
+    attributes:
+      label: Traces to
+      description: The ID of the need in the repository's docs/needs.md whose behaviour fails, if there is one.
+      placeholder: ABC-N-001
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: No open or closed issue reports the same problem.
+          required: true
+        - label: The report contains no secrets, private paths, internal host names or names of private repositories.
+          required: true
